@@ -66,6 +66,15 @@ namespace TicTacToeTests
         [Fact]
         public void btnNewGame_Click_ResetsGameBoard()
         {
+            //set the game board
+
+            var sut = new MainWindow();
+            sut._GameLogic.UpdateBoard(new Position() { x = 0, y = 0 }, "data");
+            sut.btnNewGame_Click(null, null);
+
+            var emptyBoard = new String[,] { { "", "", "" }, { "", "", "" }, { "", "", "" } };
+            Assert.Equal(emptyBoard, sut._GameLogic.CurrentBoard);
+
 
         }
 

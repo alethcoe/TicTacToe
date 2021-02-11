@@ -10,6 +10,7 @@ namespace TicTacToeVideo
         private const string X = "X";
         private const string O = "O";
         private string[,] Board = new string[3, 3];
+        public string[,] CurrentBoard => Board;
 
         public void SetNextPlayer()
         {

@@ -24,7 +24,7 @@ namespace TicTacToeVideo
         {
             InitializeComponent();
         }
-        GameLogic _GameLogic = new GameLogic();
+       public GameLogic _GameLogic = new GameLogic();
 
         private void PlayerClicksSpace (object sender, RoutedEventArgs e)
         {
@@ -49,7 +49,7 @@ namespace TicTacToeVideo
             _GameLogic.SetNextPlayer();
 
         }
-        private void btnNewGame_Click(object sender, RoutedEventArgs e)
+        public void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
             foreach( var control in gridBoard.Children)
             {
