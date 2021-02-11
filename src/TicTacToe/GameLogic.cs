@@ -33,7 +33,15 @@ namespace TicTacToeVideo
 
         public bool PlayerWin(string[,] board)
         {
-            //we want to check the horizontal row
+            if (RowWins(board)) return true;
+            if (ColumnWins(board)) return true;
+            if (DiagWins(board)) return true;
+  
+            return false;
+        }
+
+        public bool RowWins(string[,] board)
+        {
             for (var i = 0; i < 3; i++)
             {
                 if (!String.IsNullOrWhiteSpace(board[i, 0]))
@@ -44,8 +52,11 @@ namespace TicTacToeVideo
                     }
                 }
             }
+            return false;
+        }
 
-            //we want to the columns
+        public bool ColumnWins(string[,] board)
+        {
             for (var i = 0; i < 3; i++)
             {
                 if (!String.IsNullOrWhiteSpace(board[0, i]))
@@ -56,9 +67,11 @@ namespace TicTacToeVideo
                     }
                 }
             }
+            return false;
+        }
 
-            //diagonal
-
+        public bool DiagWins(string[,] board)
+        {
             if (!String.IsNullOrWhiteSpace(board[1, 1]))
             {
                 if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2])
@@ -66,12 +79,11 @@ namespace TicTacToeVideo
                     return true;
                 }
 
-                if (board[0, 2] == board[1, 1] && board[1,1] == board[2, 0])
+                if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0])
                 {
                     return true;
                 }
             }
-
             return false;
         }
 
