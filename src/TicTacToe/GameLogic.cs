@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
+[assembly: InternalsVisibleToAttribute("TicTacToeTests")]
 namespace TicTacToeVideo
 {
     public class GameLogic
     {
         public string CurrentPlayer { get; set; } = X;
-        private const string X = "X";
-        private const string O = "O";
+        internal const string X = "X";
+        internal const string O = "O";
         private string[,] Board = new string[3, 3];
         public string[,] CurrentBoard => Board;
 

@@ -51,15 +51,22 @@ namespace TicTacToeVideo
         }
         public void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
-            foreach( var control in gridBoard.Children)
-            {
-                if(control is Button)
+                foreach (var control in gridBoard.Children)
                 {
-                    ((Button)control).Content = String.Empty;
+                    if (control is Button)
+                    {
+                        ((Button)control).Content = String.Empty;
+                    }
                 }
-            }
-            _GameLogic = new GameLogic();
+
+            resetGameState();
             WinScreen.Visibility = Visibility.Collapsed;
         }
+
+        public void resetGameState()
+        {
+            _GameLogic = new GameLogic();
+        }
+
     }
 }

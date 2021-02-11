@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows;
 using TicTacToeVideo;
 using Xunit;
 
@@ -61,24 +63,19 @@ namespace TicTacToeTests
             Assert.True(result);
         }
 
-
-
-        [Fact]
-        public void btnNewGame_Click_ResetsGameBoard()
-        {
-            //set the game board
-
-            var sut = new MainWindow();
-            sut._GameLogic.UpdateBoard(new Position() { x = 0, y = 0 }, "data");
-            sut.btnNewGame_Click(null, null);
-
-            var emptyBoard = new String[,] { { "", "", "" }, { "", "", "" }, { "", "", "" } };
-            Assert.Equal(emptyBoard, sut._GameLogic.CurrentBoard);
-
-
-        }
-
         //test set next player
+        [Fact]
+        public void SetNextPlayer_Adjusts_Properly()
+        {
+            var sut = new GameLogic();
+            Assert.Equal(GameLogic.X,sut.CurrentPlayer);
+
+            sut.SetNextPlayer();
+            Assert.Equal(GameLogic.O, sut.CurrentPlayer);
+
+            sut.SetNextPlayer();
+            Assert.Equal(GameLogic.X, sut.CurrentPlayer);
+        }
 
     }
 }
