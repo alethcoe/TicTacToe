@@ -41,7 +41,7 @@ namespace TicTacToeTests
         };
 
         [Theory]
-        [MemberData(nameof(HorizontalData))]
+        [MemberData(nameof(ColumnData))]
         public void PlayerWins_Column(string[,] board)
         {
             var sut = new GameLogic();
@@ -63,7 +63,6 @@ namespace TicTacToeTests
             Assert.True(result);
         }
 
-        //test set next player
         [Fact]
         public void SetNextPlayer_Adjusts_Properly()
         {
